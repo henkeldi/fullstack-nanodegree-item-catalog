@@ -1,0 +1,98 @@
+
+/* general style */
+
+* {
+	box-sizing: border-box;
+}
+
+img,
+embed,
+object,
+video {
+	max-width: 100%;
+}
+
+/* page layout */
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.main-page-content {
+    width: 800px;
+}
+
+/* cards */
+
+.card {
+    width: 100%;
+}
+
+.card-container {
+    display: flex; 
+    justify-content: space-between;
+}
+
+.categories-list-container {
+    width: 40%;
+}
+
+.card-and-button-container {
+    justify-content: space-between;
+}
+
+/* bordered list */
+
+.items-list-container {
+    border-left: 1px solid rgba(0,0,0,.1);
+}
+
+/* list text */
+
+.item-category {
+    color: rgba(0,0,0,.6);
+}
+
+/* edit / create forms */
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.form-container-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px 20px;
+}
+
+.form-container-item-content {
+    margin-left: 40px;
+    padding-top: 0;
+    width: 90%;
+}
+
+.form-container-item-label {
+    width: 10%;
+}
+
+.form-container-item-label-select {
+    width: 10%;
+    padding-top: 20px;
+}
+
+.form-container-item-content-select {
+    margin-left: 40px;
+    width: 90%;
+}
+
+/* google sign-in button */
+
+#signinButton {
+    display: flex; 
+    justify-content: center;
+    margin-top: 20px;
+}

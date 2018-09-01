@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Catalog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" /> 
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    <script src="//apis.google.com/js/platform.js?onload=start" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <div  class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">Catalog App</span>
+            </div>
+        </header>
+
+        <main class="main-container mdl-layout__content">
+            <div class="main-page-content page-content">
+                <div class="card mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__actions mdl-card--border">
+
+                        <!-- Title -->
+                        <div class="mdl-card__title">
+                            <h2 class="mdl-card__title-text">Login</h2>
+                        </div>
+
+                        <!-- Sign in Button -->
+                        <div id="signinButton">
+                            <span class="g-signin"
+                            data-scope="openid email"
+                            data-clientid="341936678278-jtom9omp99su606nsgsijvp3urq42f8v.apps.googleusercontent.com"
+                            data-redirecturi="postmessage"
+                            data-accesstype="offline"
+                            data-cookiepolicy="single_host_origin"
+                            data-callback="signInCallback"
+                            data-approvalprompt="force">
+                            </span>
+                        </div>
+
+                        <!-- Displays outcome of login process -->
+                        <!--  -> Success: Redirect -->
+                        <!--  -> Failure: Error Message -->
+                        <div id="result" style="display: none; justify-content: center; flex-direction: column; align-items: center;">
+                            <div id="message" stlye="margin: 50px"></div>
+                            <div id="redirect" style="display: none; justify-content: center; flex-direction: row; align-items: center;">
+                                <div style="margin: 10px" class="mdl-spinner mdl-js-spinner is-active"></div>
+                                <span stlye="margin-top: 20px">Redirecting ...</span>
+                            </div>
+                        </div>
+
+                        <script>
+                            function signInCallback(authResult) {
+                                if(authResult['code']) {
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '/gconnect?state={{STATE}}',
+                                        processData: false,
+                                        contentType: 'application/octet-stream; charset=utf-8',
+                                        data: authResult['code'],
+                                        success: function (result) {
+                                            if (result) {
+                                                /* success: hide button, show redirecting message */
+                                                $('#signinButton').css('display', 'none')
+                                                $('#message').html('Successfully logged in.')
+                                                $('#redirect').css('display', 'flex');
+                                                $('#result').css('display', 'flex');
+                                                setTimeout(function() {window.location.href = "/"}, 4000);
+                                            } else {
+                                                /* failure: show error message */
+                                                $('#message').html('Failed to make a server-side request. Check your configuration and console.')
+                                                $('#result').css('display', 'flex');
+                                            }
+                                        }
+                                    })
+                                }
+                            }
+                        </script>
+                       
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
