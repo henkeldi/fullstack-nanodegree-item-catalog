@@ -97,13 +97,12 @@ def add_catalog_item():
                          methods=['GET', 'POST'])
 @login_required
 def edit_catalog_item(catalog_name, item_name):
+    catalog = db.get_catalog(catalog_name)
+    catalog_item = db.get_item(catalog.id, item_name)
     creator = db.get_user_info(catalog_item.user_id)
     if creator is None or login_session['user_id'] != creator.id:
         flash("You are not allowed to access there", "error")
         return redirect('/')
-
-    catalog = db.get_catalog(catalog_name)
-    catalog_item = db.get_item(catalog.id, item_name)
 
     catalogs = db.get_catalogs()
     if request.method == 'POST':
@@ -125,13 +124,12 @@ def edit_catalog_item(catalog_name, item_name):
                          methods=['GET', 'POST'])
 @login_required
 def delete_catalog_item(catalog_name, item_name):
+    catalog = db.get_catalog(catalog_name)
+    catalog_item = db.get_item(catalog.id, item_name)
     creator = db.get_user_info(catalog_item.user_id)
     if creator is None or login_session['user_id'] != creator.id:
         flash("You are not allowed to access there", "error")
         return redirect('/')
-
-    catalog = db.get_catalog(catalog_name)
-    catalog_item = db.get_item(catalog.id, item_name)
 
     if request.method == 'POST':
         db.delete_catalog_item(catalog_item)
