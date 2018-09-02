@@ -18,7 +18,7 @@
                 <span class="mdl-layout-title">Catalog App</span>
                 <div class="mdl-layout-spacer"></div>
                 <a class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent"
-                    href="{{url_for('gdisconnect')}}">Logout
+                    href="{{url_for('auth.gdisconnect')}}">Logout
                 </a>
             </div>
         </header>
@@ -29,7 +29,7 @@
                         <div class="mdl-card__title">
                             <h2 class="mdl-card__title-text">Add Item</h2>
                         </div>
-                        <form action="{{url_for('add_catalog_item')}}" method="POST">
+                        <form action="{{url_for('catalog.add_catalog_item')}}" method="POST">
                             <div class="form-container">
 
                                 <!-- Category -->
@@ -48,7 +48,7 @@
                                 <div class="form-container-item">
                                     <span class="form-container-item-label">Title</span>
                                     <div class="form-container-item-content mdl-textfield mdl-js-textfield">
-                                        <input  class="mdl-textfield__input" id="name" name="name" value=""></input>
+                                        <input  class="mdl-textfield__input" id="name" name="name" value="" required></input>
                                         <label class="mdl-textfield__label" for="name"></label>
                                     </div>
                                 </div>
@@ -57,7 +57,7 @@
                                 <div class="form-container-item">
                                     <span class="form-container-item-label">Description</span>
                                     <div class="form-container-item-content mdl-textfield mdl-js-textfield">
-                                        <textarea class="mdl-textfield__input" rows= "5" id="description" name="description"></textarea>
+                                        <textarea class="mdl-textfield__input" rows= "5" id="description" name="description" required></textarea>
                                         <label class="mdl-textfield__label" for="description"></label>
                                     </div>
                                 </div>
@@ -66,7 +66,7 @@
                                 <div style="height: 20px"></div>
 
                                 <div class="mdl-card__actions mdl-card--border">
-                                    <a href="{{url_for('catalogs')}}"
+                                    <a href="{{url_for('catalog.catalogs')}}"
                                         class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                                         Cancel
                                     </a>

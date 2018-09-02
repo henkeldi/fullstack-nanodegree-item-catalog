@@ -16,7 +16,7 @@
                 <span class="mdl-layout-title">Catalog App</span>
                 <div class="mdl-layout-spacer"></div>
                 <a class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent"
-                    href="{{url_for('gdisconnect')}}">Logout
+                    href="{{url_for('auth.gdisconnect')}}">Logout
                 </a>
             </div>
         </header>
@@ -27,7 +27,7 @@
                         <div class="mdl-card__title">
                             <h2 class="mdl-card__title-text">Delete Item</h2>
                         </div>
-                        <form action="{{url_for('delete_catalog_item', catalog_name=catalog.name, item_name=catalog_item.name)}}" method="POST">
+                        <form action="{{url_for('catalog.delete_catalog_item', catalog_name=catalog.name, item_name=catalog_item.name)}}" method="POST">
                             <div class="form-container">
 
                                 <div class="form-container-item">
@@ -38,7 +38,7 @@
                                 <div style="height: 20px"></div>
 
                                 <div class="mdl-card__actions mdl-card--border">
-                                    <a href="{{url_for('catalogs')}}"
+                                    <a href="{{url_for('catalog.catalogs')}}"
                                         class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                                         Cancel
                                     </a>

@@ -1,24 +1,25 @@
 [
     {
         "name": "Soccer",
-        "user_id": 1,
         "items": [
             {
                 "name": "Ball",
+                "user_id": 1,
                 "description": "Lorem ipsum dolor sit amet, ut in dui sagittis pellentesque fusce ultrices, massa est blandit, amet leo tortor amet ligula, interdum pellentesque. Mauris in ridiculus gravida. Aliquam et donec nunc, dignissim sed enim nam aliquam fusce odio, in arcu rhoncus molestiae bibendum, pede erat distinctio a lacus ullamcorper pharetra, fermentum nunc. Ac blandit sed mollis mauris, est nullam ligula. Enim quis habitasse enim et."
             }
         ]
     },
     {
         "name": "Snowboarding",
-        "user_id": 1,
         "items": [
             {
                 "name": "Googles",
+                "user_id": 1,
                 "description": "Lorem ipsum dolor sit amet, ut in dui sagittis pellentesque fusce ultrices, massa est blandit, amet leo tortor amet ligula, interdum pellentesque. Mauris in ridiculus gravida. Aliquam et donec nunc, dignissim sed enim nam aliquam fusce odio, in arcu rhoncus molestiae bibendum, pede erat distinctio a lacus ullamcorper pharetra, fermentum nunc. Ac blandit sed mollis mauris, est nullam ligula. Enim quis habitasse enim et."
             },
             {
                 "name": "Snowboard",
+                "user_id": 1,
                 "description": "Lorem ipsum dolor sit amet, ut in dui sagittis pellentesque fusce ultrices, massa est blandit, amet leo tortor amet ligula, interdum pellentesque. Mauris in ridiculus gravida. Aliquam et donec nunc, dignissim sed enim nam aliquam fusce odio, in arcu rhoncus molestiae bibendum, pede erat distinctio a lacus ullamcorper pharetra, fermentum nunc. Ac blandit sed mollis mauris, est nullam ligula. Enim quis habitasse enim et."
             }            
         ]

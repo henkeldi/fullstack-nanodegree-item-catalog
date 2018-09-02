@@ -16,7 +16,7 @@
                 <span class="mdl-layout-title">Catalog App</span>
                 <div class="mdl-layout-spacer"></div>
                 <a class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent"
-                    href="{{url_for('gdisconnect')}}">Logout
+                    href="{{url_for('auth.gdisconnect')}}">Logout
                 </a>
             </div>
         </header>
@@ -34,11 +34,11 @@
                         </div>
 
                         <div class="mdl-card__actions mdl-card--border">
-                            <a href="{{url_for('edit_catalog_item', catalog_name=catalog_name, item_name=catalog_item.name)}}"
+                            <a href="{{url_for('catalog.edit_catalog_item', catalog_name=catalog_name, item_name=catalog_item.name)}}"
                                 class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                                 edit
                             </a>
-                            <a href="{{url_for('delete_catalog_item', catalog_name=catalog_name, item_name=catalog_item.name)}}"
+                            <a href="{{url_for('catalog.delete_catalog_item', catalog_name=catalog_name, item_name=catalog_item.name)}}"
                                 class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                                 delete
                             </a>

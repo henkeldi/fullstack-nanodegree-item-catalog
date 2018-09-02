@@ -44,14 +44,14 @@ Setup the database:
 
 ```
 cd /vagrant/fullstack-nanodegree-item-catalog
-python create_database.py
+python item_catalog/create_database.py
 ```
 
 ### Running the program
 
 ```
 cd /vagrant/fullstack-nanodegree-item-catalog
-python project.py
+python start_server.py
 ```
 
 Now navigate to `localhost:5000` on your local machine. It should look as shown below.

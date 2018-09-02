@@ -96,3 +96,13 @@ video {
     justify-content: center;
     margin-top: 20px;
 }
+
+/* flask flash messages */
+
+.error {
+    color: #f44336;
+}
+
+.success {
+    color: #4caf50;
+}
