@@ -1,6 +1,6 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-from flask import Blueprint
+from flask import Blueprint, jsonify
 from .. import database as db
 
 api_blueprint = Blueprint('api', __name__)
