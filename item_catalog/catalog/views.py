@@ -3,18 +3,18 @@
 from datetime import datetime
 
 from flask import (Blueprint,
-				   session as login_session,
+                   session as login_session,
                    request,
                    redirect,
                    url_for,
                    flash,
-				   render_template)
+                   render_template)
 
 from .. import database as db
 from ..auth.views import login_required
 
-catalog_blueprint = Blueprint('catalog', __name__, 
-						      template_folder='templates')
+catalog_blueprint = Blueprint('catalog', __name__,
+                              template_folder='templates')
 
 
 @catalog_blueprint.route('/')
@@ -74,7 +74,7 @@ def catalog_item(catalog_name, item_name):
 
 
 @catalog_blueprint.route('/catalog///add',
-					     methods=['GET', 'POST'])
+                         methods=['GET', 'POST'])
 @login_required
 def add_catalog_item():
     catalogs = db.get_catalogs()
@@ -94,7 +94,7 @@ def add_catalog_item():
 
 
 @catalog_blueprint.route('/catalog/<catalog_name>/<item_name>/edit',
-						 methods=['GET', 'POST'])
+                         methods=['GET', 'POST'])
 @login_required
 def edit_catalog_item(catalog_name, item_name):
     catalog = db.get_catalog(catalog_name)
@@ -121,7 +121,7 @@ def edit_catalog_item(catalog_name, item_name):
 
 
 @catalog_blueprint.route('/catalog/<catalog_name>/<item_name>/delete',
-    					 methods=['GET', 'POST'])
+                         methods=['GET', 'POST'])
 @login_required
 def delete_catalog_item(catalog_name, item_name):
     catalog = db.get_catalog(catalog_name)

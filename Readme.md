@@ -68,7 +68,7 @@ Checks the code against some of the style conventions in [PEP 8](https://www.pyt
 
 ```
 cd /vagrant/fullstack-nanodegree-item-catalog
-pycodestyle *.py
+pycodestyle .
 ```
 
 ## Authors

@@ -9,12 +9,12 @@ import requests
 from functools import wraps
 
 from flask import (Blueprint,
-				   session as login_session,
+                   session as login_session,
                    make_response,
                    request,
                    redirect,
                    flash,
-				   render_template)
+                   render_template)
 
 from oauth2client.client import flow_from_clientsecrets
 from oauth2client.client import FlowExchangeError
@@ -22,8 +22,8 @@ from oauth2client.client import FlowExchangeError
 from .. import database as db
 
 
-auth_blueprint = Blueprint('auth', __name__, 
-						   template_folder='templates')
+auth_blueprint = Blueprint('auth', __name__,
+                           template_folder='templates')
 
 
 def login_required(f):
@@ -47,6 +47,7 @@ def login():
         ])
     login_session['state'] = state
     return render_template('login.html', STATE=state)
+
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 credentials_file = os.path.join(current_dir, 'client_secret.json')

@@ -78,6 +78,9 @@ class CatalogItem(Base):
             'user_id': self.user_id
         }
 
+
 current_dir = os.path.dirname(os.path.abspath(__file__))
-engine = create_engine('sqlite:///{}/catalog.db?check_same_thread=False'.format(current_dir))
+database_path = 'sqlite:///{}/catalog.db?check_same_thread=False'\
+    .format(current_dir)
+engine = create_engine(database_path)
 Base.metadata.create_all(engine)

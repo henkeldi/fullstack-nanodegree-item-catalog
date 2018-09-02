@@ -3,7 +3,7 @@
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from database_setup import Base, Catalog, CatalogItem
+from database_setup import Base, Catalog, CatalogItem, database_path
 from datetime import datetime
 import json
 
@@ -12,12 +12,14 @@ def main():
     """Creats catalog database entries from a JSON file
     """
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    engine = create_engine('sqlite:///{}/catalog.db'.format(current_dir))
+    engine = create_engine(database_path)
     Base.metadata.create_all(engine)
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
 
-    with open(os.path.join(current_dir, 'initial_catalog_data.json'), 'r') as f:
+    json_file_path = os.path.join(current_dir, 'initial_catalog_data.json')
+
+    with open(json_file_path, 'r') as f:
         data = json.load(f)
 
     for catalog_data in data:

@@ -7,10 +7,11 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.exc import NoResultFound
 
-from database_setup import Base, User, Catalog, CatalogItem
+from database_setup import Base, User, Catalog, CatalogItem, database_path
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
-engine = create_engine('sqlite:///{}/catalog.db?check_same_thread=False'.format(current_dir))
+
+engine = create_engine(database_path)
 Base.metadata.create_all(engine)
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
